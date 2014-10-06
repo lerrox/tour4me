@@ -1,0 +1,28 @@
+@(currentPage: String = "Домашняя",
+menuItems:List[(String, String)] = List(
+    ("Домашняя", "/"),
+    ("Туры", "/tours"),
+    ("Отели", "/hotels"))
+)
+
+
+<header id="header" class="sticky-header">
+
+    <div class="menu-head">
+        <div class="container">
+
+            <nav>
+                <ul class="sf-menu">
+                    @for(item <- menuItems) {
+                        @if(item._1 == currentPage) {
+                            <li class="current selectedLava"><a href="@item._2">@item._1</a></li>
+                        } else {
+                            <li><a href= "@item._2">@item._1</a></li>
+                        }
+
+                    }
+                </ul><!-- end menu -->
+            </nav>
+        </div><!-- headdown -->
+    </div><!-- headdown -->
+</header><!-- end header -->

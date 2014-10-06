@@ -1,0 +1,431 @@
+@(message: String, preps:List[ru.isaev.tour4me.models.in.tui.Preposition])
+
+@main("Tui чистопольская : отели") {
+
+<div class="body-wrapper">
+
+
+@views.html.partials.header()
+@views.html.partials.mainMenu("Туры")
+
+<div class="page-title">
+    <div class="container">
+        <div class="breadcrumb clearfix">
+            <a href="index.html">Home</a>
+            <span class="current-page">List Page - List</span>
+        </div>
+    </div>
+</div>
+
+<div class="main-wrapper">
+
+<div class="container">
+
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div class="sidebar">
+<div class="gap10"></div>
+<div class="result-detail">
+    <h3 class="widget-title">Your Search Details</h3>
+    <span class="block"><i class="icon-map-marker mi text-warning"></i>Bangkok, Thailand</span>
+    <span class="block"><i class="icon-calendar mi text-warning"></i>2 nights (13 Jun – 15 Jun)</span>
+    <span class="block main-text"><i class="icon-check mi mi text-warning"></i>267 hotels from $129</span>
+</div>
+<div class="sidebar-module">
+    <h3 class="widget-title">Search Again</h3>
+    <form class="tour-search" role="form">
+        <div class="full-fourth">
+            <div class="form-group">
+                <label for="where-hotel">Where you want to go?<span class="star"></span></label>
+                <input type="email" class="form-control" id="where-hotel" placeholder="Where you want to stay">
+            </div>
+        </div>
+        <div class="two-fourth mr">
+            <div class="datepicker-wrapper">
+                <div class="form-group datepicker-wrapper">
+                    <label for="check-in-hotel">Check-in <span class="star"></span></label>
+                    <input type="text" class="form-control date" id="check-in-hotel" placeholder="dd/mm/yy">
+                    <i class="icon-calendar"></i>
+                </div>
+            </div>
+        </div>
+        <div class="two-fourth">
+            <div class="datepicker-wrapper">
+                <div class="form-group datepicker-wrapper">
+                    <label for="check-out-hotel">Check-out <span class="star"></span></label>
+                    <input type="text" class="form-control date" id="check-out-hotel" placeholder="dd/mm/yy">
+                    <i class="icon-calendar"></i>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="three-fourth mr">
+            <div class="form-group">
+                <span>Rooms</span>
+                <select class="form-control mySelectBoxClass">
+                    <option>1</option>
+                    <option selected>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+        </div>
+        <div class="three-fourth mr">
+            <div class="form-group">
+                <span>Adult</span>
+                <select class="form-control mySelectBoxClass">
+                    <option>1</option>
+                    <option selected>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+        </div>
+        <div class="three-fourth">
+            <div class="form-group">
+                <span>Child</span>
+                <select class="form-control mySelectBoxClass">
+                    <option>0</option>
+                    <option selected>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+        </div>
+        <div class="clearfix gap10"></div>
+        <button type="submit" class="btn btn-primary btn-block">
+            <i class="icon-search icon-flip-horizontal"></i> Search
+        </button>
+    </form>
+</div>
+
+<div class="gap20"></div>
+<div class="sidebar-module">
+    <h3 class="widget-title">Filter By</h3>
+    <div class="gap10"></div>
+    <div class="another-toggle">
+        <h5 class="active">CATEGORIES</h5>
+        <div class="another-toggle-inner">
+            <ul class="styled-checkbox" style="margin-top: 5px; margin-left: 5px">
+                <li>
+                    <label for="cat-1">
+                        <input type="checkbox" id="cat-1">Hooneymoom
+                    </label>
+                </li>
+                <li>
+                    <label for="cat-2">
+                        <input type="checkbox" id="cat-2">Adventure
+                    </label>
+                </li>
+                <li>
+                    <label for="cat-3">
+                        <input type="checkbox" id="cat-3">Life Style
+                    </label>
+                </li>
+                <li>
+                    <label for="cat-4">
+                        <input type="checkbox" id="cat-4">Historical Tour
+                    </label>
+                </li>
+                <li>
+                    <label for="cat-5">
+                        <input type="checkbox" id="cat-5">Trekking
+                    </label>
+                </li>
+            </ul>
+            <div class="clear gap10"></div>
+        </div><!-- /another-toggle-inner -->
+    </div><!-- /another-toggle -->
+
+    <div class="another-toggle">
+        <h5 class="active">PRICE</h5>
+        <div class="another-toggle-inner">
+            <div class="clear gap10"></div>
+            <select class="form-control in-toggle mySelectBoxClass">
+                <option>Below than $50</option>
+                <option>$51 - $150</option>
+                <option>$151 - $500</option>
+                <option>$501 - $1500</option>
+                <option>$1501 - $3000</option>
+                <option>$3001 Up</option>
+            </select>
+            <div class="clear gap20"></div>
+        </div><!-- /another-toggle-inner -->
+    </div><!-- /another-toggle -->
+
+    <div class="another-toggle">
+        <h5 class="active">STARS RATING</h5>
+        <div class="another-toggle-inner">
+            <ul class="styled-checkbox" style="margin-top: 5px; margin-left: 5px">
+                <li>
+                    <label for="rating-1">
+                        <input type="checkbox" id="rating-1"><span class="rating-static rating-10"></span>
+                    </label>
+                </li>
+                <li>
+                    <label for="rating-2">
+                        <input type="checkbox" id="rating-2"><span class="rating-static rating-20"></span>
+                    </label>
+                </li>
+                <li>
+                    <label for="rating-3">
+                        <input type="checkbox" id="rating-3"><span class="rating-static rating-30"></span>
+                    </label>
+                </li>
+                <li>
+                    <label for="rating-4">
+                        <input type="checkbox" id="rating-4"><span class="rating-static rating-40"></span>
+                    </label>
+                </li>
+                <li>
+                    <label for="rating-5">
+                        <input type="checkbox" id="rating-5"><span class="rating-static rating-50"></span>
+                    </label>
+                </li>
+            </ul>
+            <div class="clear gap10"></div>
+        </div><!-- /another-toggle-inner -->
+    </div><!-- /another-toggle -->
+
+    <div class="another-toggle">
+        <h5 class="active">FACILITIES</h5>
+        <div class="another-toggle-inner">
+            <ul class="styled-checkbox" style="margin-top: 5px; margin-left: 5px">
+                <li>
+                    <label for="facilities-1">
+                        <input type="checkbox" id="facilities-1">Wifi
+                    </label>
+                </li>
+                <li>
+                    <label for="facilities-2">
+                        <input type="checkbox" id="facilities-2">Parking
+                    </label>
+                </li>
+                <li>
+                    <label for="facilities-3">
+                        <input type="checkbox" id="facilities-3">Airport Shuttle
+                    </label>
+                </li>
+                <li>
+                    <label for="facilities-4">
+                        <input type="checkbox" id="facilities-4">Restaurant
+                    </label>
+                </li>
+                <li>
+                    <label for="facilities-5">
+                        <input type="checkbox" id="facilities-5">Family rooms
+                    </label>
+                </li>
+            </ul>
+            <div class="clear gap10"></div>
+        </div><!-- /another-toggle-inner -->
+    </div><!-- /another-toggle -->
+
+    <div class="another-toggle">
+        <h5>OTHER</h5>
+        <div class="another-toggle-inner">
+            <p>OTHER</p>
+        </div><!-- /another-toggle-inner -->
+    </div><!-- /another-toggle -->
+
+</div>
+<div class="gap10"></div>
+</div>
+</div>
+
+<div class="col-xs-12 col-sm-8 col-md-9">
+
+<div class="gap20"></div>
+
+<div class="topsortby">
+    <div class="text">
+        <strong>Sort By: </strong>
+    </div>
+    <button class="most-popular">Most Popular</button>
+    <div class="two-fourth">
+        <select class="form-control mySelectBoxClass ">
+            <option selected>Guest rating</option>
+            <option>5 stars</option>
+            <option>4 stars</option>
+            <option>3 stars</option>
+            <option>2 stars</option>
+            <option>1 stars</option>
+        </select>
+    </div>
+    <div class="one-fourth">
+        <select class="form-control mySelectBoxClass ">
+            <option selected>Name</option>
+            <option>A to Z</option>
+            <option>Z to A</option>
+        </select>
+    </div>
+    <div class="one-fourth">
+        <select class="form-control mySelectBoxClass ">
+            <option selected>Price</option>
+            <option>Ascending</option>
+            <option>Descending</option>
+        </select>
+    </div>
+    <div class="btn-group pull-right">
+        <a href="page-list-1.html" class="btn current" id="grid"><i class="icon-th icon-white"></i></a>
+        <a href="page-list-2.html" class="btn" id="list"><i class="icon-th-list"></i></a>
+    </div>
+</div>
+
+<div class="clear"></div>
+<div class="gap20"></div>
+<div class="border-bottom"></div>
+<div class="gap30"></div>
+<div class="row">
+
+    @for(p <- preps) {
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="product-item">
+                <div class="image">
+                    <a href="page-details.html">
+                        <img src="assets/image/special-offer/item1.jpg" alt="Special Offer"/>
+                        <span class="hover-effect">
+                            <i class="icon-link"></i>
+                        </span>
+                    </a>
+                </div>
+                <div class="details">
+                    <h4><a href="page-details.html">Mabely Grand Hotel</a></h4>
+                    <span class="hotel-location"><i class="icon-map-marker"></i> Bali, Indonedia</span>
+                    <span class="rating-static rating-40"></span>
+                    <span class="review">153 reviews</span>
+                </div>
+                <div class="border-bottom"></div>
+                <div class="bottom">
+                    <span class="large-price"><small>From</small> $143</span>
+                    <a href="page-details.html" class="link">Details</a>
+                </div>
+            </div>
+        </div>
+    }
+
+</div>
+<div class="clear"></div>
+<nav class="paging pull-right">
+    <p>Page 01 of 06</p>
+    <ul class="pagination">
+        <li class="disabled"><a href="#">&laquo;</a></li>
+        <li class="active"><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li><a href="#">6</a></li>
+        <li><a href="#">&raquo;</a></li>
+    </ul>
+</nav>
+
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- /main-wrapper -->
+
+<footer id="main-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-4 col-md-4">
+                <div class="small-about widget-wrapper rs-mb">
+                    <img src="assets/image/logo-footer.png" alt="logo">
+                    <address>
+                        <strong>IBN Travel Inc.</strong><br />
+                        795 Ramkhamheng 24 Road, Huamark,
+                        Bangkapi, Bangkok 10250
+                        Thailand
+                    </address>
+                    <p class="copy-right">&copy; 2013 <a href="index.html">IBN Travel</a>. All Right Reserved</p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-4">
+                <div class="widget-wrapper rs-mb">
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <h2 class="widget-title">Customer Care</h2>
+                            <ul class="small-menu">
+                                <li><a href="#" title="How to procces reservation?">Make reservation</a></li>
+                                <li><a href="#" title="FAQ">FAQ</a></li>
+                                <li><a href="#" title="Payment Options">Payment Options</a></li>
+                                <li><a href="#" title="Booking Tips">Booking Tips</a></li>
+                                <li><a href="#" title="Informaion">Informaion</a></li>
+                                <li><a href="#" title="Hotel Awards">Hotel Awards </a></li>
+                                <li><a href="#" title="Press Room">Press Room</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <h2 class="widget-title">Our Partners</h2>
+                            <ul class="small-menu">
+                                <li><a href="#" title="Asia Rooms">Asia Rooms</a></li>
+                                <li><a href="#" title="Easy Booking">Easy Booking</a></li>
+                                <li><a href="#" title="Agoda">Agoda</a></li>
+                                <li><a href="#" title="Expedia">Expedia</a></li>
+                                <li><a href="#" title="TripAdvisor">TripAdvisor</a></li>
+                                <li><a href="#" title="Cheap Hotels">Cheap Hotels </a></li>
+                                <li><a href="#" title="Orbitz Travel">Orbitz Travel</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-4">
+                <div class="widget-wrapper">
+                    <h2 class="widget-title">Subsribe to Our Newsletter</h2>
+                    <div class="gap10"></div>
+                    <div class="newsletter">
+                        <form name="email-validation" id="email-validation" class="fixed-position" action="#" novalidate>
+                            <input type="email" name="form-control" id="input-email" class="form-control" placeholder="Your Email Here" value="">
+                            <button type="submit" class="btn btn-primary submit-button">Submit</button>
+                        </form>
+                    </div><!-- End newsletter -->
+                    <h2 class="widget-title">Let's Socialize</h2>
+                    <div class="social tooltips">
+                        <a href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="icon-facebook"></i></a>
+                        <a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="icon-twitter"></i></a>
+                        <a href="#" data-toggle="tooltip" data-placement="top" title="Pinterest"><i class="icon-pinterest"></i></a>
+                        <a href="#" data-toggle="tooltip" data-placement="top" title="Google+"><i class="icon-google-plus"></i></a>
+                        <a href="#" data-toggle="tooltip" data-placement="top" title="Instagram"><i class="icon-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<div id="bottom-footer">
+    <div class="container">
+        <ul class="small-menu-inline">
+            <li><a href="about-us.html">About Us</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="page-typography.html">Typography</a></li>
+            <li><a href="page-components.html">Elements</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+        <div class="text-center">
+            <a class="totop"><i class="icon-angle-up"></i></a>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript
+================================================== -->
+<script type="text/javascript" src="assets/javascripts/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="assets/javascripts/initialize-google-map.js"></script>
+<script type="text/javascript" src="assets/javascripts/modernizr.js"></script>
+<script type="text/javascript" src="assets/javascripts/jquery.plugins.js"></script>
+<script type="text/javascript" src="assets/javascripts/jquery.jscrollpane.min.js"></script>
+<script type="text/javascript" src="assets/javascripts/jquery.jcarousel.min.js"></script>
+<script type="text/javascript" src="assets/javascripts/bootstrap.js"></script>
+<script type="text/javascript" src="assets/javascripts/jquery.customs.js"></script>
+<script type="text/javascript" src="assets/javascripts/jquery-ui.min.js"></script>
+<script type="text/javascript" src="assets/javascripts/jquery.flexslider.js"></script>
+<script type="text/javascript" src="assets/javascripts/flex-slider.js"></script>
+}

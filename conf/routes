@@ -1,0 +1,12 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           ru.isaev.tour4me.controllers.Application.index
+GET     /tours                      ru.isaev.tour4me.controllers.Tours.list
+GET     /hotels                     ru.isaev.tour4me.controllers.Hotels.list
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)
+GET     /js/*file                   controllers.Assets.at(path="/app/web", file)
