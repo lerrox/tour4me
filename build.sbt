@@ -16,8 +16,10 @@ sbt.Keys.fork in Test := false
 
 libraryDependencies ++= Seq(
   jdbc,
-  cache,
-  ws,
-  "com.typesafe" % "slick_2.10.0-M7" % "0.11.1",
-  "net.sourceforge.htmlunit" % "htmlunit" % "2.15"
+    anorm,
+    cache,
+    ws,
+    "org.postgresql" % "postgresql" % "9.3-1100-jdbc4",
+    "com.typesafe.play" %% "play-slick" % "0.8.0",
+    "net.sourceforge.htmlunit" % "htmlunit" % "2.15"
 )

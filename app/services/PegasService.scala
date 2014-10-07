@@ -7,6 +7,7 @@ import play.api.Logger
 import com.gargoylesoftware.htmlunit.WebClient
 import com.gargoylesoftware.htmlunit.util.Cookie
 import com.gargoylesoftware.htmlunit.html.{HtmlDivision, HtmlPage}
+import ru.isaev.tour4me.models.Preposition
 
 
 /**
@@ -18,14 +19,13 @@ import com.gargoylesoftware.htmlunit.html.{HtmlDivision, HtmlPage}
  */
 trait PegasService {
 
-  def peroformParce(division: HtmlDivision):Preposition = {
+  def peroformParce(division: HtmlDivision):Preposition = ???
 
-  }
-
-  def parseItem(el: _) = {
+  def parseItem(el: Any) = {
      el match{
        case e:HtmlDivision => {
-         Some(peroformParce(e))
+         None
+         //Some(peroformParce(e))
        }
 
        case _ => {

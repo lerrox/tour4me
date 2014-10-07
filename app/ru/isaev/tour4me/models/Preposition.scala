@@ -1,6 +1,15 @@
 package ru.isaev.tour4me.models
 
+
 import org.joda.time.DateTime
+import scala.slick.driver.PostgresDriver.simple._
+import scala.Some
+import slick.lifted.{Tag, TableQuery, AbstractTable}
+import scala.slick.driver.PostgresDriver.simple._
+import slick.direct.AnnotationMapper.column
+import slick.ast.ColumnOption.PrimaryKey
+
+//import slick.model.Table
 
 /**
  * Created with IntelliJ IDEA.
@@ -32,3 +41,18 @@ case class Hotel(id:Option[Long],
                   tripAdvisorCounter:Option[Int],
                   tripAdvisorUrl:Option[String]
                   )
+
+class Prepositions(tag:Tag) extends AbstractTable[Preposition](tag, Some("tours"), "tours"){
+  def id = column[Option[Long]]("id", PrimaryKey)
+  def hotelId = column[Long]("hotel_id")
+  def price = column[Double]("price")
+  def fromDate = column[DateTime]("from_date")
+  def tillDate = column[Option[DateTime]]("till_date")
+  def accomodation = column[Option[String]]("accomodation")
+  def foodService = column[Option[String]]("food_service")
+  def tourOperator = column[String]("tour_operator")
+  def * = (id, hotelId, price, fromDate, tillDate, accomodation, foodService, tourOperator) <> ((Preposition.apply).tupled, Preposition.unapply)
+}
+
+
+
