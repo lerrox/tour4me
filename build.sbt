@@ -8,15 +8,16 @@ resolvers += "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repos
 
 resolvers += Resolver.url("Objectify Play Repository - snapshots", url("http://schaloner.github.com/snapshots/"))(Resolver.ivyStylePatterns)
 
-lazy val root = (project in file(".")).enablePlugins(PlayScala)
-
-scalaVersion := "2.11.1"
+scalaVersion := "2.10.4"
 
 sbt.Keys.fork in Test := false
 
+lazy val root = Project("computer-database-slick", file("."))
+  .enablePlugins(PlayScala)
+  .dependsOn(ProjectRef(file("slick"), "playSlick"))
+
 libraryDependencies ++= Seq(
   jdbc,
-    anorm,
     cache,
     ws,
     "org.postgresql" % "postgresql" % "9.3-1100-jdbc4",
